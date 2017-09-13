@@ -1,4 +1,4 @@
-package com.example.demo.module;
+package com.baidu.exam.module;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
