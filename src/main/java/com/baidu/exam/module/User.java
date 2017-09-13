@@ -23,7 +23,7 @@ public class User {
     private String name;
     private String sex;
     private String birthday;
-    private String idcard;
+    private String idCard;
 
     public Long getId() {
         return id;
@@ -73,12 +73,12 @@ public class User {
         this.birthday = birthday;
     }
 
-    public String getIdcard() {
-        return idcard;
+    public String getIdCard() {
+        return idCard;
     }
 
-    public void setIdcard(String idcard) {
-        this.idcard = idcard;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", birthday='" + birthday + '\'' +
-                ", idcard='" + idcard + '\'' +
+                ", idCard='" + idCard + '\'' +
                 '}';
     }
 }
