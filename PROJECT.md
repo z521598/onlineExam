@@ -16,6 +16,9 @@
 > 测验  
 > id paper_id user_id time mark
 
+##### answer
+> 用户答案
+> id content question_id user_id exam_id 
 
 ##### notice 
 > 考试通知

@@ -1,3 +1,3 @@
 git add .
-git commit -m "new"`date +%s`
+git commit -m "msg"$1
 git push origin master
