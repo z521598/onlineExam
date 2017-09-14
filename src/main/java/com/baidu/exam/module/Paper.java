@@ -1,5 +1,7 @@
 package com.baidu.exam.module;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,9 +21,9 @@ public class Paper {
     private Long id;
 
     private String title;
-    private String totalMark;
+    private Double totalMark;
     private String author;
-    private String time;
+    private Date time;
 
     public Long getId() {
         return id;
@@ -39,11 +41,11 @@ public class Paper {
         this.title = title;
     }
 
-    public String getTotalMark() {
+    public Double getTotalMark() {
         return totalMark;
     }
 
-    public void setTotalMark(String totalMark) {
+    public void setTotalMark(Double totalMark) {
         this.totalMark = totalMark;
     }
 
@@ -55,11 +57,11 @@ public class Paper {
         this.author = author;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

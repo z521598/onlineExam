@@ -1,5 +1,7 @@
 package com.baidu.exam.module;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class User {
     private String passwd;
     private String name;
     private String sex;
-    private String birthday;
+    private Date birthday;
     private String idCard;
 
     public Long getId() {
@@ -65,11 +67,11 @@ public class User {
         this.sex = sex;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
