@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.crypto.Data;
 
 /**
  * Created by langshiquan on 17/9/13.
@@ -21,6 +22,8 @@ public class Notice {
     private String content;
 
     private Long paperId;
+
+    private Data endTime;
 
     public Long getId() {
         return id;
@@ -46,12 +49,21 @@ public class Notice {
         this.paperId = paperId;
     }
 
+    public Data getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Data endTime) {
+        this.endTime = endTime;
+    }
+
     @Override
     public String toString() {
         return "Notice{" +
                 "id=" + id +
                 ", content='" + content + '\'' +
                 ", paperId=" + paperId +
+                ", endTime=" + endTime +
                 '}';
     }
 }
