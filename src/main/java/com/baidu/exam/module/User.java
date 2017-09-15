@@ -21,7 +21,7 @@ public class User {
     private Long id;
 
     private String username;
-    private String passwd;
+    private String password;
     private String name;
     private String sex;
     private Date birthday;
@@ -43,12 +43,12 @@ public class User {
         this.username = username;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -88,7 +88,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", passwd='" + passwd + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", birthday='" + birthday + '\'' +
