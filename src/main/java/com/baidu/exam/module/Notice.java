@@ -1,5 +1,7 @@
 package com.baidu.exam.module;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +25,7 @@ public class Notice {
 
     private Long paperId;
 
-    private Data endTime;
+    private Date endTime;
 
     public Long getId() {
         return id;
@@ -49,11 +51,11 @@ public class Notice {
         this.paperId = paperId;
     }
 
-    public Data getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Data endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 
