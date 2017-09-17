@@ -59,5 +59,11 @@ function formatDate(date) {
 }
 
 function deleteUser(id) {
-    alert(id);
+    $.ajax({
+    		type:"DELETE",
+    		url:"/user/"+id,
+    		success:function(data){
+    			window.location.reload();
+    		}
+    });
 }
