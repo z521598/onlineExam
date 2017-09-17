@@ -12,7 +12,7 @@ public class PaperBean {
     private String title;
     private String author;
     private Double totalMark;
-    private String Alltime;
+    private String allTime;
     private List<Question> questions;
 
     public Long getPaperId() {
@@ -47,12 +47,12 @@ public class PaperBean {
         this.questions = questions;
     }
 
-    public String getAlltime() {
-        return Alltime;
+    public String getAllTime() {
+        return allTime;
     }
 
-    public void setAlltime(String alltime) {
-        Alltime = alltime;
+    public void setAllTime(String allTime) {
+        this.allTime = allTime;
     }
 
     public Double getTotalMark() {

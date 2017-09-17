@@ -71,7 +71,7 @@ public class PaperServiceImpl implements PaperService {
         paperBean.setTitle(paper.getTitle());
         paperBean.setAuthor(paper.getAuthor());
         paperBean.setTotalMark(paper.getTotalMark());
-        paperBean.setAlltime(Constant.EXAM_TIME_HOUR+"h");
+        paperBean.setAllTime(Constant.EXAM_TIME_HOUR+"h");
         List<Question> questionList = questionDao.findByPaperId(paperId);
         paperBean.setQuestions(questionList);
         return paperBean;
