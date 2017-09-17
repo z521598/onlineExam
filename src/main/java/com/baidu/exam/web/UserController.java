@@ -33,10 +33,11 @@ public class UserController extends BaseController {
     UserService userService;
 
     // for fe to getById loginUser id
-    @RequestMapping(value = "/getUserId")
+    @RequestMapping(value = "/getUser")
     @ResponseBody
-    public String delete(HttpSession session) {
+    public String getUser(HttpSession session) {
         User user = (User) session.getAttribute(Constant.USER_SESSION_ATTRIBUTE);
-        return String.valueOf(user.getId());
+        user = userService.getUsers(user.getId()).get(0);
+        return JSON.toJSONString(user);
     }
 }

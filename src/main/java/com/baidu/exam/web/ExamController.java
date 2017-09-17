@@ -49,6 +49,7 @@ public class ExamController {
                 if (paperForUserBean.getId() == exam.getPaperId()) {
                     paperForUserBean.setExamStatus(exam.getExamStatus());
                     paperForUserBean.setExamId(exam.getId());
+                    paperForUserBean.setRealMark(exam.getTotalMark());
                 }
             }
         }

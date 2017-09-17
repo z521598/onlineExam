@@ -30,7 +30,7 @@ public class LoginController {
     private UserService userService;
 
     @RequestMapping("/")
-    public String home() {
+    public String home(HttpSession session) {
         return "home.html";
     }
 
