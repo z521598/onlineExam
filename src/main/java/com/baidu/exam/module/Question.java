@@ -21,7 +21,7 @@ public class Question {
     private Long paperId;
     private String question;
     private String answer;
-    private String type;
+    private String type = "";
     private Double mark;
 
     public Long getId() {

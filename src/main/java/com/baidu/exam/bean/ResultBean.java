@@ -4,7 +4,7 @@ package com.baidu.exam.bean;
  * Created by langshiquan on 17/9/15.
  */
 public class ResultBean {
-    private Boolean isSuccess;
+    private Boolean isSuccess = true;
     private String message = "succ";
 
     public Boolean getSuccess() {

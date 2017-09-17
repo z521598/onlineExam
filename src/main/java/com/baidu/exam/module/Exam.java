@@ -26,7 +26,9 @@ public class Exam {
 
     private Double totalMark;
 
-    private Date time;
+    private Date startTime;
+
+    private Date endTime;
 
     public Long getId() {
         return id;
@@ -60,12 +62,20 @@ public class Exam {
         this.totalMark = totalMark;
     }
 
-    public Date getTime() {
-        return time;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
     @Override
@@ -75,7 +85,8 @@ public class Exam {
                 ", paperId=" + paperId +
                 ", userId=" + userId +
                 ", totalMark=" + totalMark +
-                ", time=" + time +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
                 '}';
     }
 }

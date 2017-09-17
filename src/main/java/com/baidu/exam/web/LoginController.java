@@ -1,5 +1,8 @@
 package com.baidu.exam.web;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -32,25 +35,25 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-    public String login(User user, HttpSession session) {
-        //        ResultBean resultBean = new ResultBean();
-        //        boolean flag = false;
-        //        String message = null;
-        //        try {
-        if (userService.login(user)) {
-            session.setAttribute("loginUser", user.getId());
-            //                flag = true;
+    @ResponseBody
+    public String login(User user, HttpSession session, HttpServletResponse response) throws IOException {
+        ResultBean resultBean = new ResultBean();
+        boolean flag = false;
+        String message = null;
+        try {
+            if (userService.login(user)) {
+                session.setAttribute("loginUser", user.getId());
+                response.sendRedirect("/home.html");
+                flag = true;
+            } else {
+                message = "账号或者密码错误";
+            }
+        } catch (Exception e) {
+            message = "unkown reason:" + e.getMessage();
         }
-        //            else {
-        //                message = "账号或者密码错误";
-        //            }
-        //        } catch (Exception e) {
-        //            message = "unkown reason:" + e.getMessage();
-        //        }
-        //        resultBean.setSuccess(flag);
-        //        resultBean.setMessage(message);
-        //        return JSON.toJSONString(resultBean);
-        return "/";
+        resultBean.setSuccess(flag);
+        resultBean.setMessage(message);
+        return JSON.toJSONString(resultBean);
     }
 
     @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
