@@ -18,9 +18,29 @@
         a:hover{
             background:#ddd;
         }
+        table{
+            width:400px;
+        }
+        th,td{
+            border:1px solid rgb(108,108,108);
+        }
     </style>
 </head>
-<body>
-    <span>还没有创建试卷，立即添加：</span><a href="createPaper.html" class="addPaper">添加试卷</a>
+<body onload="getPaperInfo('get', '/paper/0', null)">
+    <span>若还没有创建试卷，请立即添加：</span><a href="createPaper.html" class="addPaper">添加试卷</a>
+    <table class="tableList">
+        <thead>
+        <tr>
+            <th>试卷序号</th>
+            <th>试卷题目</th>
+            <th>作者</th>
+            <th class="operation">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/paperMange.js"></script>
 </body>
 </html>

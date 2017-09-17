@@ -41,3 +41,56 @@ $("#savePapers").click(function(){
    		}
    	});
 });
+//点击试卷管理
+//function getPaperInfo(){
+//     $.ajax({
+//           		type:"get",
+//           		url:"/paper/0",
+//           		dataType: "json",
+//                headers: {'Content-Type': 'application/json'},
+//           		success:function(data){
+//           		   var a = JSON.parse(xhr.responseText);
+//                   for (i = 0; i < a.length; i++) {
+//                       listPaper(a[i]);
+//                   }
+//           		}
+//         });
+//}
+function getPaperInfo(method, url, data) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if ((xhr.status >= 200 && xhr.status < 300 ) || xhr.status == 304) {
+                var a = JSON.parse(xhr.responseText);
+//                console.log(a);
+                for (i = 0; i < a.length; i++) {
+                    listPaper(a[i]);
+                }
+            } else {
+                alert('请求失败');
+                console.log(xhr.status);
+            }
+        }
+    }
+    //创建请求
+    xhr.open(method, url, true);
+    //发送请求
+    xhr.send(data);
+    // xhr.responseText;//响应文本
+}
+function listPaper(data){
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        var td2 = document.createElement("td");
+        var td3 = document.createElement("td");
+        var td4 = document.createElement("td");
+        td1.innerHTML = data.paperId;
+        td2.innerHTML = data.title;
+        td3.innerHTML = data.author;
+        td4.innerHTML = '<input type = "button" value="删除" onclick="deleteUser('+data.id+')"/>';
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        $(".tableList").append(tr);
+}
