@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理员登录</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link href="css/login.css" rel="stylesheet"/>
-    <style type="text/css">
-		.form-bg{
+.form-bg{
 			padding: 2em 0;
 		}
 		.form-horizontal{
@@ -19,6 +7,13 @@
 			border-radius: 15px;
 			text-align: center;
 		}
+		.register,.forget{
+        			color: #ccc;
+        			line-height:35px;
+        		}
+        		.forget{
+        			text-decoration: underline;
+        		}
 		.form-horizontal .heading{
 			display: block;
 			font-size: 35px;
@@ -137,39 +132,3 @@
 				padding: 10px 20px;
 			}
 		}
-	</style>
-</head>
-<body><script src="/demos/googlegg.js"></script>
-<div class="demo form-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-3 col-md-6">
-                <form class="form-horizontal">
-                    <span class="heading">管理员登录</span>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="inputEmail3" placeholder="用户名">
-                    </div>
-                    <div class="form-group help">
-                        <input type="password" class="form-control" id="inputPassword3" placeholder="密码">
-                        <!--<a href="#" class="fa fa-question-circle"></a>-->
-                    </div>
-                    <div class="form-group">
-                        <div class="main-checkbox">
-                            <input type="checkbox" value="None" id="checkbox1" name="check"/>
-                            <label for="checkbox1"></label>
-                        </div>
-                        <span class="text">记住我</span>
-                        <a href="##" target="_blank" class="register">还没有账号？立即注册</a>&nbsp&nbsp&nbsp
-                        <a href="##" target="_blank" class="forget">忘记密码</a>
-                        <button type="submit" class="btn btn-default">登录</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff">
-</div>
-</body>
-</html>
