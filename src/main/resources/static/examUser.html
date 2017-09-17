@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>测验管理</title>
+    <style>
+        table {
+            width: 400px;
+        }
+        th, td {
+            border: 1px solid rgb(108, 108, 108);
+        }
+        td {
+            text-align: center;
+        }
+    </style>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/examUser.js"></script>
 </head>
@@ -17,7 +28,7 @@
         <th class="operation">操作</th>
     </tr>
     </thead>
-    <tbody class="userTable">
+    <tbody class="userTable" id="userTable">
     </tbody>
 </table>
 </body>
