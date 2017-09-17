@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <style>
+        table{
+			width: 640px;
+		}
+		td{
+			border:1px solid rgb(108,108,108);
+		}
+    </style>
+</head>
+<body onload="getUserInfo('get','/user/0',null);">
+    <!--<div class="userInfo">-->
+        <!--<label>用户名：</label><br/>-->
+        <!--<label>姓名：</label><br/>-->
+        <!--<label>性别：</label><br/>-->
+        <!--<label>身份证：</label><br/>-->
+        <!--<label>生日：</label>-->
+    <!--</div>-->
+    <table>
+        <thead>
+        <tr>
+        <th>用户名</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>身份证</th>
+        <th>生日</th>
+         <th class="operation">操作</th>
+        </tr>
+        </thead>
+        <tbody class="userTable">
+        </tbody>
+    </table>
+    <script src="../js/adminManage.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+</body>
+</html>
