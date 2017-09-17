@@ -34,6 +34,7 @@ public class LoginController {
         return "home.html";
     }
 
+    // 用户登录
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     @ResponseBody
     public String login(User user, HttpSession session, HttpServletResponse response) throws IOException {
@@ -56,8 +57,10 @@ public class LoginController {
         return JSON.toJSONString(resultBean);
     }
 
+    // 管理员登录
     @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
-    public String regist(User user, HttpSession session) {
+    @ResponseBody
+    public String regist(User user, HttpSession session,HttpServletResponse response) {
         ResultBean resultBean = new ResultBean();
         boolean flag = false;
         String message = null;
@@ -65,6 +68,7 @@ public class LoginController {
             if (user.getUsername().equals(Constant.ADMIN_USERNAME) && user.getPassword()
                     .equals(Constant.ADMIN_PASSWORD)) {
                 session.setAttribute(Constant.USER_SESSION_ATTRIBUTE, user);
+                response.sendRedirect("/admin/adminManage.html");
                 flag = true;
             } else {
                 message = "账号或者密码错误";

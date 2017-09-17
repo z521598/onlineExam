@@ -1,14 +1,14 @@
-package com.baidu.exam.common;
+package com.baidu.exam.module;
 
 /**
  * Created by langshiquan on 17/9/17.
  */
-public enum StatusEnum {
+public enum ExamStatus {
     INIT("初始化"), DOING("进行中"), DONE("已结束");
 
     private String value;
 
-    StatusEnum(String value) {
+    ExamStatus(String value) {
         this.value = value;
     }
 

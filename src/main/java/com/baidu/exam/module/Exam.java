@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,6 +27,9 @@ public class Exam {
     private Long userId;
 
     private Double totalMark;
+
+    @Enumerated(EnumType.STRING)
+    private ExamStatus examStatus;
 
     private Date startTime;
 
@@ -78,6 +83,14 @@ public class Exam {
         this.endTime = endTime;
     }
 
+    public ExamStatus getExamStatus() {
+        return examStatus;
+    }
+
+    public void setExamStatus(ExamStatus examStatus) {
+        this.examStatus = examStatus;
+    }
+
     @Override
     public String toString() {
         return "Exam{" +
@@ -85,6 +98,7 @@ public class Exam {
                 ", paperId=" + paperId +
                 ", userId=" + userId +
                 ", totalMark=" + totalMark +
+                ", examStatus=" + examStatus +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 '}';
