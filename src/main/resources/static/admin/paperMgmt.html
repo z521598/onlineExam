@@ -4,87 +4,94 @@
     <meta charset="UTF-8">
     <title>Paper</title>
     <style>
-        a{
-            width:80px;
-            height:25px;
-            line-height:25px;
-            text-align:center;
-            color:#000;
-            display:inline-block;
-            text-decoration:none;
-            border:1px solid grey;
-            border-radius:3px;
+        a {
+            width: 80px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            color: #000;
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid grey;
+            border-radius: 3px;
         }
-        a:hover{
-            background:#ddd;
+
+        a:hover {
+            background: #ddd;
         }
-        table{
-            width:400px;
+
+        table {
+            width: 400px;
         }
-        th,td{
-            border:1px solid rgb(108,108,108);
+
+        th, td {
+            border: 1px solid rgb(108, 108, 108);
         }
-        td{
-            text-align:center;
+
+        td {
+            text-align: center;
         }
-        <style>
-		.paper{
-			width: 450px;
-			padding: 20px;
-			background: #eee;
-			border: 1px solid #000;
-		}
-		.head{
-			height: 20px;
-			color: #000;
-			text-align: center;
-			font-size: 22px;
-		}
-		.title{
-			margin-bottom: 20px;
-		}
-		.author{
-			text-align: right;
-		}
-		.exercise{
-			border-top: 1px solid #ddd;
-			padding:10px;
-		}
-	</style>
+
+        .paper {
+            width: 450px;
+            padding: 20px;
+            background: #eee;
+            border: 1px solid #000;
+        }
+
+        .head {
+            height: 20px;
+            color: #000;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .title {
+            margin-bottom: 20px;
+        }
+
+        .author {
+            text-align: right;
+        }
+
+        .exercise {
+            border-top: 1px solid #ddd;
+            padding: 10px;
+        }
     </style>
 </head>
 <body onload="getPaperInfo('get', '/paper/0', null)">
-    <span>若还没有创建试卷，请立即添加：</span><a href="createPaper.html" class="addPaper">添加试卷</a>
-    <table class="tableList">
-        <thead>
-        <tr>
-            <th>试卷序号</th>
-            <th>试卷题目</th>
-            <th>作者</th>
-            <th class="operation">操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <div class="paper">
-        <div class="title">
-            <div class="head">试卷标题</div>
-            <div class="author">作者：</div>
-        </div>
-        <div class="exercise">
-            <div class="title">题目：</div>
-            <div class="answer">答案：</div>
-            <div class="mark">分数：</div>
-        </div>
-        <div class="exercise">
-            <div class="title">题目：</div>
-            <div class="answer">答案：</div>
-            <div class="mark">分数：</div>
-        </div>
+<span>若还没有创建试卷，请立即添加：</span><a href="createPaper.html" class="addPaper">添加试卷</a>
+<table class="tableList">
+    <thead>
+    <tr>
+        <th>试卷序号</th>
+        <th>试卷题目</th>
+        <th>作者</th>
+        <th class="operation">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<div class="paper">
+    <div class="title">
+        <div class="head">试卷标题</div>
+        <div class="author">作者：</div>
     </div>
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/getUrlParam.js"></script>
-    <script src="../js/paperMange.js"></script>
+    <div class="exercise">
+        <div class="title">题目：</div>
+        <div class="answer">答案：</div>
+        <div class="mark">分数：</div>
+    </div>
+    <div class="exercise">
+        <div class="title">题目：</div>
+        <div class="answer">答案：</div>
+        <div class="mark">分数：</div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/getUrlParam.js"></script>
+<script src="../js/paperMange.js"></script>
 </body>
 </html>
