@@ -54,4 +54,15 @@ public class UserServiceImpl implements UserService {
         return list;
     }
 
+    @Override
+    public Boolean deleteUser(Long id) {
+        try {
+            userDao.delete(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
+
 }

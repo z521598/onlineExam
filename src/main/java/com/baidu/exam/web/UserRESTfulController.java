@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.baidu.exam.bean.ResultBean;
 import com.baidu.exam.module.User;
 import com.baidu.exam.service.impl.UserService;
 
@@ -21,9 +22,9 @@ import com.baidu.exam.service.impl.UserService;
 
 @Controller
 @RequestMapping("/user")
-public class UserController extends BaseController {
+public class UserRESTfulController extends BaseController {
 
-    public final static Logger LOG = LoggerFactory.getLogger(UserController.class);
+    public final static Logger LOG = LoggerFactory.getLogger(UserRESTfulController.class);
 
     @Autowired
     UserService userService;
@@ -39,7 +40,7 @@ public class UserController extends BaseController {
             userService.save(user);
             return "注册成功";
         } catch (Exception e) {
-            return "注册失败，位置错误:" + e.getMessage();
+            return "注册失败,未知错误:" + e.getMessage();
         }
     }
 
@@ -51,5 +52,12 @@ public class UserController extends BaseController {
         return JSON.toJSONString(userList);
     }
 
-
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String delete(@PathVariable Long id) {
+        ResultBean resultBean = new ResultBean();
+        resultBean.setSuccess(true);
+        userService.deleteUser(id);
+        return JSON.toJSONString(resultBean);
+    }
 }

@@ -5,7 +5,7 @@ package com.baidu.exam.bean;
  */
 public class ResultBean {
     private Boolean isSuccess;
-    private String message;
+    private String message = "succ";
 
     public Boolean getSuccess() {
         return isSuccess;

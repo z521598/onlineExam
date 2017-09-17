@@ -15,4 +15,6 @@ public interface UserService {
     Boolean login(User user);
 
     List<User> getUsers(Long id);
+
+    Boolean deleteUser(Long id);
 }
