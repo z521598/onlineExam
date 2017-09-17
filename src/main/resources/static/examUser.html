@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>测验管理</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/examUser.js"></script>
 </head>
-<body>
-测验管理
+<body onload="init()">
+<table>
+    <thead>
+    <tr>
+        <th>标题</th>
+        <th>总分</th>
+        <th>得分</th>
+        <th>状态</th>
+        <th class="operation">操作</th>
+    </tr>
+    </thead>
+    <tbody class="userTable">
+    </tbody>
+</table>
 </body>
 </html>
