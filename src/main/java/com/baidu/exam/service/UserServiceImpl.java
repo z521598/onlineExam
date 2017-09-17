@@ -35,12 +35,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean login(User user) {
+    public User login(User user) {
         List<User> userList = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
         if (userList != null && userList.size() == 1) {
-            return true;
+            return userList.get(0);
         }
-        return false;
+        return null;
     }
 
     @Override

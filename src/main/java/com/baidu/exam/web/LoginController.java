@@ -42,8 +42,9 @@ public class LoginController {
         boolean flag = false;
         String message = null;
         try {
-            if (userService.login(user)) {
-                session.setAttribute("loginUser", user.getId());
+            User loginUser = userService.login(user);
+            if (loginUser != null) {
+                session.setAttribute("loginUser", loginUser);
                 response.sendRedirect("/home.html");
                 flag = true;
             } else {
@@ -60,7 +61,7 @@ public class LoginController {
     // 管理员登录
     @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
     @ResponseBody
-    public String regist(User user, HttpSession session,HttpServletResponse response) {
+    public String regist(User user, HttpSession session, HttpServletResponse response) {
         ResultBean resultBean = new ResultBean();
         boolean flag = false;
         String message = null;

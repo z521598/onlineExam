@@ -12,7 +12,7 @@ public interface UserService {
 
     Boolean checkUserExist(User user);
 
-    Boolean login(User user);
+    User login(User user);
 
     List<User> getUsers(Long id);
 
