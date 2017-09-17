@@ -87,10 +87,20 @@ function listPaper(data){
         td1.innerHTML = data.paperId;
         td2.innerHTML = data.title;
         td3.innerHTML = data.author;
-        td4.innerHTML = '<input type = "button" value="删除" onclick="deleteUser('+data.id+')"/>';
+        td4.innerHTML = '<input type = "button" value="删除" onclick="deletePaper('+data.paperId+')"/>';
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         tr.appendChild(td4);
         $(".tableList").append(tr);
+}
+//删除试卷
+function deletePaper(id) {
+    $.ajax({
+    		type:"DELETE",
+    		url:"/paper/"+id,
+    		success:function(data){
+    			window.location.reload();
+    		}
+    });
 }
