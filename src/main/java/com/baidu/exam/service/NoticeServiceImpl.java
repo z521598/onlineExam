@@ -1,6 +1,7 @@
 package com.baidu.exam.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class NoticeServiceImpl implements NoticeService {
     public List<Notice> getNotice(Long id) {
         List<Notice> notices = new ArrayList<>();
         if (id == 0l) {
-            notices = noticeDao.findAll();
+            notices = noticeDao.findByEndTimeBefore(new Date());
         } else {
             notices.add(noticeDao.findOne(id));
         }
