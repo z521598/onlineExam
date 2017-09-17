@@ -16,7 +16,7 @@
 			text-align: center;
 			font-size: 22px;
 		}
-		.title{
+		.tit{
 			margin-bottom: 20px;
 		}
 		.author{
@@ -28,23 +28,19 @@
 		}
 	</style>
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/getUrlParam.js"></script>
     <script src="../js/paperMange.js"></script>
 </head>
-<body>
-<div class="paper">
-    <div class="title">
-        <div class="head">试卷标题</div>
-        <div class="author">作者：</div>
+<body onload="paperDetail()">
+<div class="paper" id="paper">
+    <div class="tit">
+        <div id="head" class="head">试卷标题</div>
+        <div class="author" id="author">作者：</div>
     </div>
     <div class="exercise">
-        <div class="title">题目：</div>
-        <div class="answer">答案：</div>
-        <div class="mark">分数：</div>
-    </div>
-    <div class="exercise">
-        <div class="title">题目：</div>
-        <div class="answer">答案：</div>
-        <div class="mark">分数：</div>
+        <div class="title" id="title">题目：</div>
+        <div class="answer" id="answer">答案：</div>
+        <div class="mark" id="mark">分数：</div>
     </div>
 </div>
 
