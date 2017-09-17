@@ -30,6 +30,7 @@ public class PaperRESTfulController extends BaseController{
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public String add(@RequestBody PaperBean paper) {
+        LOG.info("come a add paper reuqest obj:{}",paper);
         ResultBean resultBean = new ResultBean();
         try {
             paperService.savePaperAndQuestion(paper);
@@ -46,7 +47,7 @@ public class PaperRESTfulController extends BaseController{
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     @ResponseBody
     public String get(@PathVariable Long id) {
-        return JSON.toJSONString(paperService.assemblePaperAndQuestion(id));
+        return JSON.toJSONString(paperService.assemblePaperAndQuestionList(id));
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)

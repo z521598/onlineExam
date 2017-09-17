@@ -1,5 +1,7 @@
 package com.baidu.exam.service.impl;
 
+import java.util.List;
+
 import com.baidu.exam.bean.PaperBean;
 
 /**
@@ -9,7 +11,7 @@ public interface PaperService {
 
     boolean savePaperAndQuestion(PaperBean paperBean);
 
-    PaperBean assemblePaperAndQuestion(Long paperId);
+    List<PaperBean> assemblePaperAndQuestionList(Long paperId);
 
     void deletePaperAndQuestion(Long paperId);
 }

@@ -1,5 +1,6 @@
 package com.baidu.exam.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -49,7 +50,20 @@ public class PaperServiceImpl implements PaperService {
     }
 
     @Override
-    public PaperBean assemblePaperAndQuestion(Long paperId) {
+    public List<PaperBean> assemblePaperAndQuestionList(Long paperId) {
+        List<PaperBean> paperBeanList = new ArrayList<>();
+        if (paperId == 0) {
+            List<Paper> papers = paperDao.findAll();
+            for (Paper paper : papers) {
+                paperBeanList.add(assemblePaperAndQuestion(paper.getId()));
+            }
+        } else {
+            paperBeanList.add(assemblePaperAndQuestion(paperId));
+        }
+        return paperBeanList;
+    }
+
+    private PaperBean assemblePaperAndQuestion(Long paperId) {
         PaperBean paperBean = new PaperBean();
         Paper paper = paperDao.findOne(paperId);
         paperBean.setTitle(paper.getTitle());
