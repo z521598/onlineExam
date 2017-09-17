@@ -11,6 +11,8 @@ public class PaperForUserBean extends Paper {
 
     private Long examId;
 
+    private Double realMark;
+
     public PaperForUserBean(Paper paper) {
         super.setAuthor(paper.getAuthor());
         super.setTime(paper.getTime());
@@ -35,11 +37,20 @@ public class PaperForUserBean extends Paper {
         this.examStatus = examStatus;
     }
 
+    public Double getRealMark() {
+        return realMark;
+    }
+
+    public void setRealMark(Double realMark) {
+        this.realMark = realMark;
+    }
+
     @Override
     public String toString() {
         return "PaperForUserBean{" + super.toString() +
                 "examStatus=" + examStatus +
                 ", examId=" + examId +
+                ", realMark=" + realMark +
                 '}';
     }
 }

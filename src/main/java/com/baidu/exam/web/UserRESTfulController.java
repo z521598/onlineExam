@@ -32,13 +32,13 @@ public class UserRESTfulController extends BaseController {
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public String add(User user) {
-        if (userService.checkUserExist(user)) {
+        if (user.getId() == null && userService.checkUserExist(user)) {
             return "注册失败，用户名已存在";
         }
         LOG.info("register user : {}", user);
         try {
             userService.save(user);
-            return "注册成功";
+            return "注册或者修改成功";
         } catch (Exception e) {
             return "注册失败,未知错误:" + e.getMessage();
         }
@@ -60,4 +60,5 @@ public class UserRESTfulController extends BaseController {
         userService.deleteUser(id);
         return JSON.toJSONString(resultBean);
     }
+
 }
