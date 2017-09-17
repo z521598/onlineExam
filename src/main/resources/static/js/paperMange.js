@@ -1,6 +1,6 @@
 var i =0;
 $(".add").click(function(){
-    var newPapers = '<div id="div'+i+'"><label>题目：</label><input type="text" name="paperTit"/><label>答案：</label><input type="text" name="answer"/> <label>分数：</label><input type="text" name="mark"/>   <input type="button" value="删除" class="delete" onclick="deletePaper('+i+')"><br></div>';
+    var newPapers = '<div id="div'+i+'"><label>题目：</label><input type="text" name="paperTit"/><label>答案：</label><input type="text" name="answer"/> <label>分数：</label><input type="text" name="mark"/>   <input type="button" value="删除" class="delete" onclick="deletePaper('+i+')"> <br></div>';
     $(".papers").append(newPapers);
     i++;
 });
@@ -16,7 +16,6 @@ $("#savePapers").click(function(){
     for(i=0;i<$('input[name="paperTit"]').length;i++){
         var question = {};
         var a = $('input[name="paperTit"]')[i];
-        console.log(typeof a);
         question.question =  $('input[name="paperTit"]')[i].value;
         question.answer =  $('input[name="answer"]')[i].value;
         question.mark =  $('input[name="mark"]')[i].value;
@@ -42,20 +41,6 @@ $("#savePapers").click(function(){
    	});
 });
 //点击试卷管理
-//function getPaperInfo(){
-//     $.ajax({
-//           		type:"get",
-//           		url:"/paper/0",
-//           		dataType: "json",
-//                headers: {'Content-Type': 'application/json'},
-//           		success:function(data){
-//           		   var a = JSON.parse(xhr.responseText);
-//                   for (i = 0; i < a.length; i++) {
-//                       listPaper(a[i]);
-//                   }
-//           		}
-//         });
-//}
 function getPaperInfo(method, url, data) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -87,14 +72,13 @@ function listPaper(data){
         td1.innerHTML = data.paperId;
         td2.innerHTML = data.title;
         td3.innerHTML = data.author;
-        td4.innerHTML = '<input type = "button" value="删除" onclick="deletePaper('+data.paperId+')"/>';
+        td4.innerHTML = '<input type = "button" value="删除" onclick="deletePaper('+data.paperId+')"/><a href="paperDetail.html?id='+data.paperId+' target = "right" class="paperDetail">查看详情</a> ';
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         tr.appendChild(td4);
         $(".tableList").append(tr);
-}
-//删除试卷
+};
 function deletePaper(id) {
     $.ajax({
     		type:"DELETE",
@@ -102,5 +86,20 @@ function deletePaper(id) {
     		success:function(data){
     			window.location.reload();
     		}
+    });
+}
+////查看详情
+function paperDetail(）{
+
+    var id=UrlParm.parm("id");
+        alert(id);
+
+    $.ajax({
+        type:"GET",
+        url:"/paper/"+id,
+        success:function(data){
+            console.log(data[id]);
+            $(".head").innerHTML =data[id].title;
+        }
     });
 }

@@ -27,6 +27,30 @@
         td{
             text-align:center;
         }
+        <style>
+		.paper{
+			width: 450px;
+			padding: 20px;
+			background: #eee;
+			border: 1px solid #000;
+		}
+		.head{
+			height: 20px;
+			color: #000;
+			text-align: center;
+			font-size: 22px;
+		}
+		.title{
+			margin-bottom: 20px;
+		}
+		.author{
+			text-align: right;
+		}
+		.exercise{
+			border-top: 1px solid #ddd;
+			padding:10px;
+		}
+	</style>
     </style>
 </head>
 <body onload="getPaperInfo('get', '/paper/0', null)">
@@ -43,7 +67,24 @@
         <tbody>
         </tbody>
     </table>
+    <div class="paper">
+        <div class="title">
+            <div class="head">试卷标题</div>
+            <div class="author">作者：</div>
+        </div>
+        <div class="exercise">
+            <div class="title">题目：</div>
+            <div class="answer">答案：</div>
+            <div class="mark">分数：</div>
+        </div>
+        <div class="exercise">
+            <div class="title">题目：</div>
+            <div class="answer">答案：</div>
+            <div class="mark">分数：</div>
+        </div>
+    </div>
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/getUrlParam.js"></script>
     <script src="../js/paperMange.js"></script>
 </body>
 </html>
