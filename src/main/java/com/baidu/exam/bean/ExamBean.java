@@ -3,6 +3,7 @@ package com.baidu.exam.bean;
 import java.util.List;
 
 import com.baidu.exam.module.Answer;
+import com.baidu.exam.module.ExamStatus;
 import com.baidu.exam.module.Paper;
 import com.baidu.exam.module.Question;
 
@@ -15,8 +16,17 @@ public class ExamBean {
     private Long userId;
     private Double totalMark;
     private Paper paper;
+    private ExamStatus examStatus;
     private List<Answer> answers;
     private List<Question> questions;
+
+    public ExamStatus getExamStatus() {
+        return examStatus;
+    }
+
+    public void setExamStatus(ExamStatus examStatus) {
+        this.examStatus = examStatus;
+    }
 
     public Long getUserId() {
         return userId;

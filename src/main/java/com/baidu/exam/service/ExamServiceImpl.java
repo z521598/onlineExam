@@ -18,6 +18,7 @@ import com.baidu.exam.module.Exam;
 import com.baidu.exam.module.ExamStatus;
 import com.baidu.exam.module.Paper;
 import com.baidu.exam.module.Question;
+import com.baidu.exam.module.User;
 import com.baidu.exam.service.impl.ExamService;
 
 /**
@@ -79,7 +80,7 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
-    public List<ExamBean> get(Long id) {
+    public List<ExamBean> getById(Long id) {
         List<ExamBean> list = new ArrayList<>();
         if (id == 0l) {
             List<Exam> exams = examDao.findAll();
@@ -92,12 +93,19 @@ public class ExamServiceImpl implements ExamService {
         return list;
     }
 
+    @Override
+    public List<Exam> getByUser(User user) {
+        Long userId = user.getId();
+        return examDao.findByUserId(userId);
+    }
+
     private ExamBean getOne(Long id) {
         ExamBean examBean = new ExamBean();
         Exam exam = examDao.findOne(id);
         examBean.setUserId(exam.getUserId());
         examBean.setPaperId(exam.getPaperId());
         examBean.setTotalMark(exam.getTotalMark());
+        examBean.setExamStatus(exam.getExamStatus());
         examBean.setName(userDao.findOne(exam.getUserId()).getName());
         Paper paper = paperDao.findOne(exam.getPaperId());
         examBean.setPaper(paper);

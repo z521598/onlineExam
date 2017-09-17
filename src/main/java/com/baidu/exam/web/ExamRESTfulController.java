@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.baidu.exam.bean.ExamBean;
-import com.baidu.exam.bean.PaperBean;
 import com.baidu.exam.bean.ResultBean;
 import com.baidu.exam.common.Constant;
 import com.baidu.exam.module.User;
@@ -51,7 +50,7 @@ public class ExamRESTfulController {
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     @ResponseBody
     public String get(@PathVariable Long id) {
-        List<ExamBean> examBeanList = examService.get(id);
+        List<ExamBean> examBeanList = examService.getById(id);
         return JSON.toJSONString(examBeanList);
     }
 

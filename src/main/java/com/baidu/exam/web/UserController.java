@@ -32,7 +32,7 @@ public class UserController extends BaseController {
     @Autowired
     UserService userService;
 
-    // for fe to get loginUser id
+    // for fe to getById loginUser id
     @RequestMapping(value = "/getUserId")
     @ResponseBody
     public String delete(HttpSession session) {

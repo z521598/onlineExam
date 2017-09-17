@@ -4,7 +4,7 @@ package com.baidu.exam.module;
  * Created by langshiquan on 17/9/17.
  */
 public enum ExamStatus {
-    INIT("初始化"), DOING("进行中"), DONE("已结束");
+    NO("未开始"), DOING("进行中"), DONE("已结束");
 
     private String value;
 
