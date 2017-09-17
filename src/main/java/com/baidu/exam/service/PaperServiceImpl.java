@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baidu.exam.bean.PaperBean;
+import com.baidu.exam.common.Constant;
 import com.baidu.exam.dao.PaperDao;
 import com.baidu.exam.dao.QuestionDao;
 import com.baidu.exam.module.Paper;
@@ -66,8 +67,11 @@ public class PaperServiceImpl implements PaperService {
     private PaperBean assemblePaperAndQuestion(Long paperId) {
         PaperBean paperBean = new PaperBean();
         Paper paper = paperDao.findOne(paperId);
+        paperBean.setPaperId(paper.getId());
         paperBean.setTitle(paper.getTitle());
         paperBean.setAuthor(paper.getAuthor());
+        paperBean.setTotalMark(paper.getTotalMark());
+        paperBean.setAlltime(Constant.EXAM_TIME_HOUR+"h");
         List<Question> questionList = questionDao.findByPaperId(paperId);
         paperBean.setQuestions(questionList);
         return paperBean;

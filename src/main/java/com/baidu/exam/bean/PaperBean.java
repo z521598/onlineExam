@@ -8,9 +8,20 @@ import com.baidu.exam.module.Question;
  * Created by langshiquan on 17/9/13.
  */
 public class PaperBean {
+    private Long paperId;
     private String title;
     private String author;
+    private Double totalMark;
+    private String Alltime;
     private List<Question> questions;
+
+    public Long getPaperId() {
+        return paperId;
+    }
+
+    public void setPaperId(Long paperId) {
+        this.paperId = paperId;
+    }
 
     public String getTitle() {
         return title;
@@ -34,6 +45,22 @@ public class PaperBean {
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
+    }
+
+    public String getAlltime() {
+        return Alltime;
+    }
+
+    public void setAlltime(String alltime) {
+        Alltime = alltime;
+    }
+
+    public Double getTotalMark() {
+        return totalMark;
+    }
+
+    public void setTotalMark(Double totalMark) {
+        this.totalMark = totalMark;
     }
 
     @Override
