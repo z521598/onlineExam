@@ -6,7 +6,7 @@ function getUserInfo(method, url, data) {
         if (xhr.readyState == 4) {
             if ((xhr.status >= 200 && xhr.status < 300 ) || xhr.status == 304) {
                 var a = JSON.parse(xhr.responseText);
-                console.log(a);
+//                console.log(a);
                 for (i = 0; i < a.length; i++) {
                     appendUser(a[i]);
                 }
