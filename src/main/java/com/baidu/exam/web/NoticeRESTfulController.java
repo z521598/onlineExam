@@ -20,7 +20,7 @@ import com.baidu.exam.service.impl.NoticeService;
  */
 @Controller
 @RequestMapping("/notice")
-public class NoticeController {
+public class NoticeRESTfulController {
 
     @Autowired
     private NoticeService noticeService;
