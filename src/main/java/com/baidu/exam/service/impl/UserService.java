@@ -1,5 +1,7 @@
 package com.baidu.exam.service.impl;
 
+import java.util.List;
+
 import com.baidu.exam.module.User;
 
 /**
@@ -7,4 +9,10 @@ import com.baidu.exam.module.User;
  */
 public interface UserService {
     Long save(User user);
+
+    Boolean checkUserExist(User user);
+
+    Boolean login(User user);
+
+    List<User> getUsers(Long id);
 }

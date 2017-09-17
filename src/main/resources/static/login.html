@@ -5,6 +5,36 @@
     <title>登录页面</title>
 </head>
 <body>
+<form action="/user/login" method="post" target="_top">
+    <table border="1" cellspacing="0">
+        <tr>
+            <td>
+                用户名：
+            </td>
+            <td>
+                <input type="text" name="username" id="username" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码：
+            </td>
+            <td>
+                <input type="password" name="password" id="password" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 align="center">
+                <input type="submit" value="登录" />
+                &nbsp;
+                <input type="button" value="注册"
+                       onclick="window.location.href='register.html'" />
+                <input type="button" value="找回密码"
+                       onclick="window.location.href='findPwd.html'" />
 
+            </td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

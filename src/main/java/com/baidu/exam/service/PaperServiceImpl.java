@@ -9,4 +9,5 @@ import com.baidu.exam.service.impl.PaperService;
  */
 @Service
 public class PaperServiceImpl implements PaperService{
+
 }

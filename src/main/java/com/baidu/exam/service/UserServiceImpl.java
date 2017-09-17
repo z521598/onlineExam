@@ -1,5 +1,8 @@
 package com.baidu.exam.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +24,34 @@ public class UserServiceImpl implements UserService {
         User resUser = userDao.save(user);
         return resUser.getId();
     }
+
+    @Override
+    public Boolean checkUserExist(User user) {
+        List<User> userList = userDao.findByUsername(user.getUsername());
+        if (userList != null && userList.size() != 0) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean login(User user) {
+        List<User> userList = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        if (userList != null && userList.size() == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public List<User> getUsers(Long id) {
+        List<User> list = new ArrayList<>();
+        if (id == 0l) {
+            list = userDao.findAll();
+        } else {
+            list.add(userDao.findOne(id));
+        }
+        return list;
+    }
+
 }
