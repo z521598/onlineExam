@@ -22,14 +22,17 @@ function init() {
                 if(examStatus === "NO"){
                     var realMark = 0;
                     var status = "未完成";
+                    td5.innerHTML = '<input type = "button" value="去完成" onclick="deletePaper(' + data.paperId + ')"/>';
                 }else{
                     var realMark = "xxx";
                     var status = "已完成";
+                    td5.innerHTML = '<a href="paperDetail.html?id=' + data.paperId + '" target = "right" class="paperDetail">查看详情</a> ';
                 }
                 td1.innerText = title;
                 td2.innerText = totalMark;
                 td3.innerText = realMark;
                 td4.innerText = status;
+
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
