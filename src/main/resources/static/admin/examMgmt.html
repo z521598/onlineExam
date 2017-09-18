@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <title>测验管理</title>
 </head>
-<body>
-测验管理
+<body onload="init()">
+<table>
+    <thead>
+    <tr>
+        <th>标题</th>
+        <th>总分</th>
+        <th>得分</th>
+        <th>用户名字</th>
+    </tr>
+    </thead>
+    <tbody class="examTable" id="examTable">
+    </tbody>
+</table>
 </body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/getUrlParam.js"></script>
+<script src="../js/examMgmt.js"></script>
 </html>
