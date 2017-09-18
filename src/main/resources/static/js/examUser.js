@@ -22,7 +22,8 @@ function init() {
                 if(examStatus === "NO"){
                     var realMark = 0;
                     var status = "未完成";
-                    td5.innerHTML = '<input type = "button" value="去完成" onclick="deletePaper(' + data.paperId + ')"/>';
+                    td5.innerHTML = '<a href="oltest.html?id=' + data.paperId + '" target = "right"' +
+                        ' class="paperDetail">去完成</a>';
                 }else{
                     var realMark = "xxx";
                     var status = "已完成";

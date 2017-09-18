@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线测试</title>
+    <style>
+        .paper {
+            width: 450px;
+            padding: 20px;
+            background: #eee;
+            border: 1px solid #000;
+        }
+
+        .head {
+            height: 20px;
+            color: #000;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .tit {
+            margin-bottom: 20px;
+        }
+
+        .author {
+            text-align: right;
+        }
+
+        .exercise {
+            border-top: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/getUrlParam.js"></script>
+    <script src="../js/oltest.js"></script>
+</head>
+<body onload="init()">
+<div class="paper" id="paper">
+    <div class="tit">
+        <div id="head" name="title" class="head">试卷标题</div>
+        <div class="author" name="author" id="author">作者：</div>
+    </div>
+    <form action="/exam" method="post">
+        <input type="hidden" name="paperId"/>
+        <div class="exercise">
+            <input type="hidden" name="questionId"/>
+            <div class="title" id="title">题目：</div>
+            <div class="mark" id="mark">分数：</div>
+            <div>答案：<input id="contents" name="contents"/></div>
+        </div>
+        <input type="submit" value="交卷"/>
+    </form>
+</div>
+
+</body>
+</html>

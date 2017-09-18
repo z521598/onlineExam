@@ -1,5 +1,6 @@
 package com.baidu.exam.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.baidu.exam.module.Answer;
@@ -17,8 +18,26 @@ public class ExamBean {
     private Double totalMark;
     private Paper paper;
     private ExamStatus examStatus;
+    private List<Long> questionId;
+    private List<String> contents;
     private List<Answer> answers;
     private List<Question> questions;
+
+    public List<Long> getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(List<Long> questionId) {
+        this.questionId = questionId;
+    }
+
+    public List<String> getContents() {
+        return contents;
+    }
+
+    public void setContents(List<String> contents) {
+        this.contents = contents;
+    }
 
     public ExamStatus getExamStatus() {
         return examStatus;
@@ -61,6 +80,14 @@ public class ExamBean {
     }
 
     public List<Answer> getAnswers() {
+        if (answers == null) {
+            List<Answer> answerList = new ArrayList<>();
+            for (int i = 0; questionId != null && i < questionId.size(); i++) {
+                Answer answer = new Answer();
+                answer.setQuestionId(questionId.get(i));
+                answer.setContent(contents.get(i));
+            }
+        }
         return answers;
     }
 

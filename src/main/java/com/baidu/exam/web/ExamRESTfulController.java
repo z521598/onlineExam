@@ -34,12 +34,13 @@ public class ExamRESTfulController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
-    public String add(@RequestBody ExamBean examBean, HttpSession session) {
+    public String add(ExamBean examBean, HttpSession session) {
         ResultBean resultBean = new ResultBean();
         try {
             examBean.setUserId(((User) session.getAttribute(Constant.USER_SESSION_ATTRIBUTE)).getId());
             examService.dealExam(examBean);
         } catch (Exception e) {
+            LOG.info("exam error:", e);
             resultBean.setSuccess(false);
             resultBean.setMessage(e.getMessage());
         }
