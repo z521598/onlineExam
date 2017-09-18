@@ -85,10 +85,16 @@ public class ExamServiceImpl implements ExamService {
         if (id == 0l) {
             List<Exam> exams = examDao.findAll();
             for (Exam exam : exams) {
-                list.add(getOne(exam.getId()));
+                ExamBean examBean = getOne(exam.getId());
+                if (examBean != null) {
+                    list.add(examBean);
+                }
             }
         } else {
-            list.add(getOne(id));
+            ExamBean examBean = getOne(id);
+            if (examBean != null) {
+                list.add(examBean);
+            }
         }
         return list;
     }
@@ -100,18 +106,23 @@ public class ExamServiceImpl implements ExamService {
     }
 
     private ExamBean getOne(Long id) {
-        ExamBean examBean = new ExamBean();
-        Exam exam = examDao.findOne(id);
-        examBean.setUserId(exam.getUserId());
-        examBean.setPaperId(exam.getPaperId());
-        examBean.setTotalMark(exam.getTotalMark());
-        examBean.setExamStatus(exam.getExamStatus());
-        examBean.setName(userDao.findOne(exam.getUserId()).getName());
-        Paper paper = paperDao.findOne(exam.getPaperId());
-        examBean.setPaper(paper);
-        examBean.setQuestions(questionDao.findByPaperId(exam.getPaperId()));
-        examBean.setAnswers(answerDao.findByExamId(exam.getId()));
-        return examBean;
+        try {
+            ExamBean examBean = new ExamBean();
+            Exam exam = examDao.findOne(id);
+            examBean.setUserId(exam.getUserId());
+            examBean.setPaperId(exam.getPaperId());
+            examBean.setTotalMark(exam.getTotalMark());
+            examBean.setExamStatus(exam.getExamStatus());
+            examBean.setName(userDao.findOne(exam.getUserId()).getName());
+            Paper paper = paperDao.findOne(exam.getPaperId());
+            examBean.setPaper(paper);
+            examBean.setQuestions(questionDao.findByPaperId(exam.getPaperId()));
+            examBean.setAnswers(answerDao.findByExamId(exam.getId()));
+
+            return examBean;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override

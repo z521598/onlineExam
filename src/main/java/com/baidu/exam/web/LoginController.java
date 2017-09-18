@@ -68,7 +68,7 @@ public class LoginController {
         try {
             if (user.getUsername().equals(Constant.ADMIN_USERNAME) && user.getPassword()
                     .equals(Constant.ADMIN_PASSWORD)) {
-                session.setAttribute(Constant.USER_SESSION_ATTRIBUTE, user);
+                session.setAttribute(Constant.ADMIN_SESSION_ATTRIBUTE, user);
                 response.sendRedirect("/admin/adminManage.html");
                 flag = true;
             } else {
