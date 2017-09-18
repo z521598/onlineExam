@@ -80,15 +80,16 @@ public class ExamBean {
     }
 
     public List<Answer> getAnswers() {
-        if (answers == null) {
-            List<Answer> answerList = new ArrayList<>();
+        List<Answer> answerList = answers;
+        if (answerList == null) {
+            answerList= new ArrayList<>();
             for (int i = 0; questionId != null && i < questionId.size(); i++) {
                 Answer answer = new Answer();
                 answer.setQuestionId(questionId.get(i));
                 answer.setContent(contents.get(i));
             }
         }
-        return answers;
+        return answerList;
     }
 
     public void setAnswers(List<Answer> answers) {

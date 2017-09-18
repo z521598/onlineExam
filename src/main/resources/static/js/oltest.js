@@ -10,7 +10,7 @@ function unComplete() {
         url: "/paper/" + id,
         success: function (data) {
             var paper = eval("(" + data + ")");
-            console.log(paper[0]);
+//            console.log(paper[0]);
             var head = document.getElementById("head");
             var postExam = document.getElementById("postExam");
             var author = document.getElementById("author");
@@ -25,7 +25,6 @@ function unComplete() {
                 var label = document.createElement("label");
                 var div3 = document.createElement("input");
                 var div4 = document.createElement("div");
-                var div5 = document.createElement("input");
                 div1.className = "title";
                 div2.className = "mark";
                 div3.className = "answer";
@@ -33,25 +32,59 @@ function unComplete() {
                 div1.innerText = "题目：";
                 div2.innerText = "分数：";
                 label.innerText = "答案：";
-                div5.value = "交卷";
                 div3.type = "text";
-                div5.type = "submit";
                 div4.appendChild(div1);
                 div4.appendChild(div2);
                 div4.appendChild(label);
                 div4.appendChild(div3);
                 papers.appendChild(div4);
-                papers.appendChild(div5);
             }
+            var div5 = document.createElement("input");
+            div5.value = "交卷";
+            div5.type = "submit";
+            papers.appendChild(div5);
             var titles = document.querySelectorAll(".title");
             var answer = document.querySelectorAll(".answer");
             var mark = document.querySelectorAll(".mark");
             for (j = 0; j < questions.length; j++) {
-//                console.log(questions[j]);
                 titles[j].innerText += questions[j].question;
-//                answer[j].innerText += questions[j].answer;
                 mark[j].innerText += questions[j].mark;
             }
         }
     });
 }
+//交卷
+//$("#subPaper").click(function(){
+//   var paper = {};
+//   var exercise = document.querySelectorAll(".exercise");
+//   var title = $('#head').val();
+//   var author = $('#author').val();
+//   var questions = [];
+//   for (i = 0; i < exercise.length; i++) {
+//       var question = {};
+//       var a = exercise[i];
+//       question.question = $exercise[i].innerText.split(":")[1];;
+//       question.answer = $exercise[i].innerText.split(":")[1];;
+//       question.mark = $exercise[i].innerText.split(":")[1];;
+//       questions.push(question);
+//   }
+//   ;
+//   paper.title = title;
+//   paper.author = author;
+//   paper.questions = questions;
+////    console.log(paper);
+//   $.ajax({
+//       type: "post",
+//       url: "/paper",
+//       dataType: "json",
+//       data: JSON.stringify(paper),
+//       headers: {'Content-Type': 'application/json'},
+//       success: function (res) {
+//           if (res.success) {
+//               alert("保存成功");
+//           } else {
+//               alert("保存失败，报错信息：" + res.message);
+//           }
+//       }
+//   });
+//});
