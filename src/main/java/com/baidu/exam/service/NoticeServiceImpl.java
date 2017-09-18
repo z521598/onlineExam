@@ -34,7 +34,7 @@ public class NoticeServiceImpl implements NoticeService {
     public List<Notice> getNotice(Long id) {
         List<Notice> notices = new ArrayList<>();
         if (id == 0l) {
-            notices = noticeDao.findByEndTimeBefore(new Date());
+            notices = noticeDao.findByEndTimeAfter(new Date());
         } else {
             notices.add(noticeDao.findOne(id));
         }

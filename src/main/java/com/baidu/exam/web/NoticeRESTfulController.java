@@ -46,6 +46,7 @@ public class NoticeRESTfulController extends BaseController {
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String delete(@PathVariable Long id) {
+        noticeService.delete(id);
         return JSON.toJSONString(new ResultBean());
     }
 

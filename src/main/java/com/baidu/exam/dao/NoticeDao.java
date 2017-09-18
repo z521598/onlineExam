@@ -14,5 +14,5 @@ import com.baidu.exam.module.Notice;
 @Repository
 public interface NoticeDao extends JpaRepository<Notice,Long> {
 
-    List<Notice> findByEndTimeBefore(Date now);
+    List<Notice> findByEndTimeAfter(Date date);
 }

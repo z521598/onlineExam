@@ -1,9 +1,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>通知</title>
 </head>
-<body>
+<body onload="userHomeNotice('get','/notice/0',null)">
+<table>
+    <thead>
+    <tr>
+        <th>通知内容</th>
+    </tr>
+    </thead>
+    <tbody class="noticeTable">
+    </tbody>
+</table>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/getUrlParam.js"></script>
+<script src="../js/noticeMange.js"></script>
 
 </body>
 </html>

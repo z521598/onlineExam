@@ -1,8 +1,10 @@
 package com.baidu.exam.web;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,28 +34,35 @@ public class ExamController {
     private PaperService paperService;
 
     @RequestMapping("/getExamOrPaperForUser")
-    public String getExamOrPaperStatus(HttpSession session) {
-        // 用于返回的结果
-        List<PaperForUserBean> paperForUserBeanList = new ArrayList<>();
-        // 获取全部试卷
-        List<Paper> paperList = paperService.findAll();
-        assemble(paperForUserBeanList, paperList);
-        // 获取该用户参加过的所有考试
-        List<Exam> exams = examService.getByUser((User) session.getAttribute(Constant.USER_SESSION_ATTRIBUTE));
+    public String getExamOrPaperStatus(HttpSession session, HttpServletResponse response) throws IOException {
 
-        // 修改PaperForUserBean状态
-        for (int i = 0; exams != null && i < exams.size(); i++) {
-            for (int j = 0; paperForUserBeanList != null && j < paperForUserBeanList.size(); j++) {
-                PaperForUserBean paperForUserBean = paperForUserBeanList.get(j);
-                Exam exam = exams.get(i);
-                if (paperForUserBean.getId() == exam.getPaperId()) {
-                    paperForUserBean.setExamStatus(exam.getExamStatus());
-                    paperForUserBean.setExamId(exam.getId());
-                    paperForUserBean.setRealMark(exam.getTotalMark());
+        Object sessionObj = session.getAttribute(Constant.USER_SESSION_ATTRIBUTE);
+        if (sessionObj != null) {
+            User user = (User) sessionObj;
+            // 用于返回的结果
+            List<PaperForUserBean> paperForUserBeanList = new ArrayList<>();
+            // 获取全部试卷
+            List<Paper> paperList = paperService.findAll();
+            assemble(paperForUserBeanList, paperList);
+            // 获取该用户参加过的所有考试
+            List<Exam> exams = examService.getByUser(user);
+
+            // 修改PaperForUserBean状态
+            for (int i = 0; exams != null && i < exams.size(); i++) {
+                for (int j = 0; paperForUserBeanList != null && j < paperForUserBeanList.size(); j++) {
+                    PaperForUserBean paperForUserBean = paperForUserBeanList.get(j);
+                    Exam exam = exams.get(i);
+                    if (paperForUserBean.getId() == exam.getPaperId()) {
+                        paperForUserBean.setExamStatus(exam.getExamStatus());
+                        paperForUserBean.setExamId(exam.getId());
+                        paperForUserBean.setRealMark(exam.getTotalMark());
+                    }
                 }
             }
+            return JSON.toJSONString(paperForUserBeanList);
+        } else {
+            return "";
         }
-        return JSON.toJSONString(paperForUserBeanList);
     }
 
     private void assemble(List<PaperForUserBean> paperForUserBeanList, List<Paper> paperList) {

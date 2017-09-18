@@ -1,7 +1,9 @@
 package com.baidu.exam.web;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -35,9 +37,14 @@ public class UserController extends BaseController {
     // for fe to getById loginUser id
     @RequestMapping(value = "/getUser")
     @ResponseBody
-    public String getUser(HttpSession session) {
-        User user = (User) session.getAttribute(Constant.USER_SESSION_ATTRIBUTE);
-        user = userService.getUsers(user.getId()).get(0);
-        return JSON.toJSONString(user);
+    public String getUser(HttpSession session, HttpServletResponse response) throws IOException {
+        Object sessionObj = session.getAttribute(Constant.USER_SESSION_ATTRIBUTE);
+        if (sessionObj != null) {
+            User user = (User) sessionObj;
+            user = userService.getUsers(user.getId()).get(0);
+            return JSON.toJSONString(user);
+        } else {
+            return "";
+        }
     }
 }
