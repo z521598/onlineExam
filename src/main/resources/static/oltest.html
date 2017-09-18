@@ -35,13 +35,13 @@
     <script src="../js/getUrlParam.js"></script>
     <script src="../js/oltest.js"></script>
 </head>
-<body onload="init()">
+<body onload="unComplete()">
 <div class="paper" id="paper">
     <div class="tit">
         <div id="head" name="title" class="head">试卷标题</div>
         <div class="author" name="author" id="author">作者：</div>
     </div>
-    <form action="/exam" method="post">
+    <form action="/exam" method="post" id="postExam">
         <input type="hidden" name="paperId"/>
         <div class="exercise">
             <input type="hidden" name="questionId"/>
@@ -49,7 +49,6 @@
             <div class="mark" id="mark">分数：</div>
             <div>答案：<input id="contents" name="contents"/></div>
         </div>
-        <input type="submit" value="交卷"/>
     </form>
 </div>
 

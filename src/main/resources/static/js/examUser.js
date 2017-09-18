@@ -19,21 +19,21 @@ function init() {
                 var title = papers[i].title;
                 var totalMark = papers[i].totalMark;
                 var examStatus = papers[i].examStatus;
+                  console.log(papers[i].paperId);
+                                    console.log(papers[i]);
                 if(examStatus === "NO"){
                     var realMark = 0;
                     var status = "未完成";
-                    td5.innerHTML = '<a href="oltest.html?id=' + data.paperId + '" target = "right"' +
-                        ' class="paperDetail">去完成</a>';
+                    td5.innerHTML = '<a href="oltest.html?id=' + papers[i].id + '" target = "right" class="oltest">去完成</a>';
                 }else{
                     var realMark = "xxx";
                     var status = "已完成";
-                    td5.innerHTML = '<a href="paperDetail.html?id=' + data.paperId + '" target = "right" class="paperDetail">查看详情</a> ';
+                    td5.innerHTML = '<a href="paperDetail.html?id=' + papers.paperId + '" target = "right" class="paperDetail">查看详情</a> ';
                 }
                 td1.innerText = title;
                 td2.innerText = totalMark;
                 td3.innerText = realMark;
                 td4.innerText = status;
-
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -42,8 +42,6 @@ function init() {
                 var userTable = document.getElementById("userTable");
                 userTable.appendChild(tr);
             }
-
-
         }
     });
 }
