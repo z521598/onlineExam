@@ -1,6 +1,8 @@
 var i = 0;
 $(".add").click(function () {
-    var newPapers = '<div id="div' + i + '"><label>题目：</label><input type="text" name="paperTit"/><label>答案：</label><input type="text" name="answer"/> <label>分数：</label><input type="text" name="mark"/>   <input type="button" value="删除" class="delete" onclick="deletePaper(' + i + ')"> <br></div>';
+    var newPapers = '<div id="div' + i + '"><label>题目：</label><input type="text"' +
+        ' name="paperTit"/><label>答案：(关键字，空格间隔)</label><input type="text" name="answer"/> <label>分数：</label><input' +
+        ' type="text" name="mark"/>   <input type="button" value="删除" class="delete" onclick="deletePaper(' + i + ')"> <br></div>';
     $(".papers").append(newPapers);
     i++;
 });
