@@ -28,4 +28,3 @@ nbdist/
 .mvn/
 
 
-src/main/resources/application.properties
